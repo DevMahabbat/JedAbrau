@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<!--Breadcrumb-->
+<div class="container">
+    <div class="row">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'index' %}">
+                    Ana Səhifə
+                </a>
+            </li>
+            <span>/</span>
+            <li class="breadcrumb-item">
+                Xəbərlər
+            </li>
+        </ul>
+    </div>
+</div>
+<!--Breadcrumb-->
+<!--Page Start-->
+
+<section id="news-page">
+    <div class="container">
+        <div class="row">
+            <div class="main-card">
+               {% if news1 %}
+                    <div class="col-6">
+                        <img src="{{news1.photo.url}}" alt="" style="max-width: 300;max-height: 400; style='display: inline-block'">
+                    </div>
+                    <div class="col-5">
+                        <h3 class="main-head">
+                            {{news1.title}}
+                        </h3>
+                        <p class="date">
+                            {{news1.tarix}}
+                        </p>
+                        <p class="text">
+                            {{news1.metn}}
+
+                        </p>
+                      <a href="{% url 'newsSingle' news1.id %}"> 
+                        <button class="btn">
+                            Ətraflı
+                        </button>
+                        </a>
+                    </div>
+
+
+{% else %}
+
+<h1>   Xəbər tapılmadı  </h1>
+{% endif %}
+            </div>
+            
+
+
+
+
+            {% for item in news %}
+            <div class="news-card item">
+                <a href="{% url 'newsSingle' item.id %}" style="display:inline-block;object-fit :cover;"> 
+                    <img src="{{item.photo.url}}" alt="">
+                    <div class="news-text">
+                        <h3 class="news-head">
+                            {{item.title}}
+                        </h3>
+                        <a href="#" class="detail">
+                            Ətraflı
+                        </a>
+                        <p class="news-date">
+                            {{item.tarix}}
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+
+            {% endfor %}
+
+
+        </div>
+    </div>
+</section>
+<!--Page End-->
+
+
+{% endblock main %}

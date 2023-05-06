@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+
+{% block main %}
+ <!--Home Start-->
+    <!--Breadcrumb-->
+    <div class="container">
+        <div class="row">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="./index.html">
+                        Ana Səhifə
+                    </a>
+                </li>
+                <span>/</span>
+                <li class="breadcrumb-item">
+                    <a href="./index.html">
+                        Məhsullar
+                    </a>
+                </li>
+                <span>/</span>
+                <li class="breadcrumb-item">
+                    Cullen
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--Breadcrumb-->
+    <!--Product Single Start-->
+    <section id="product-single">
+        <div class="container">
+            <div class="row">
+                <div class="product-single">
+                    <div class="col-6">
+                        <img src="{{currentproduct.photo.url}}" alt="">
+                    </div>
+                    <div class="col-6">
+                        <div class="about-block">
+                            <h2 class="product-name">
+                               {{currentproduct.name}}
+                            </h2>
+                            <p class="product-single-text">
+                   {{currentproduct.title}}
+                            </p>
+                            <span class="product-border"></span>
+                        </div>
+                        <div class="about-block">
+                            <h3 class="product-about-head">
+                                Mənşəyi
+                            </h3>
+                            <p class="product-single-text">
+                              {{currentproduct.origin}}
+                            </p>
+                            <span class="product-border"></span>
+                        </div>
+                        <div class="about-block">
+                            <h3 class="product-about-head">
+                                Alkoqol dərəcəsi
+                            </h3>
+                            <p class="product-single-text">
+                               {{currentproduct.alcohol}}
+                            </p>
+                            <span class="product-border"></span>
+                        </div>
+                        <div class="about-block">
+                            <h3 class="product-about-head">
+                                İstehsal ili
+                            </h3>
+                            <p class="product-single-text">
+                                {{currentproduct.manifacture_year}}
+                            </p>
+                            <span class="product-border"></span>
+                        </div>
+                        <div class="about-block">
+                            <h3 class="product-about-head">
+                                Məhsul haqqında
+                            </h3>
+                            <p class="product-single-text">
+                             {{currentproduct.about}}
+                            </p>
+                            <form action="" method="get">
+                                <button class="btn">
+                                    Sifariş ver
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="texture-5">
+                        <img src="./img/texture-5.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Product Single End-->
+    <!--Product About start-->
+    <section id="product-about">
+        <div class="container">
+            <div class="row">
+                <div class="product-about-block">
+                    <div class="col-3">
+                        <img src="./img/grape.svg" alt="">
+                        <h4 class="product_about_head">
+                            Tərkibi
+                        </h4>
+                        <p class="product_about_text">
+                   {{currentproduct.composition}}
+                        </p>
+                    </div>
+                    <div class="col-3">
+                        <img src="./img/pro-2.svg" alt="">
+                        <h4 class="product_about_head">
+                            Uygunluq
+                        </h4>
+                        <p class="product_about_text">
+                          {{currentproduct.combination}}
+                        </p>
+                    </div>
+                    <div class="col-3">
+                        <img src="./img/pro-3.svg" alt="">
+                        <h4 class="product_about_head">
+                            Temperatur
+                        </h4>
+                        <p class="product_about_text">
+                          {{currentproduct.temperature}}
+                        </p>
+                    </div>
+                    <div class="col-3">
+                        <img src="./img/pro-4.svg" alt="">
+                        <h4 class="product_about_head">
+                            Saxlama forması
+                        </h4>
+                        <p class="product_about_text">
+                           {{currentproduct.keeping_form}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Product About End-->
+    <!--Products Start-->
+    <section id="products">
+        <div class="container">
+            <div class="row">
+                <h2 class="page-head">
+                    Digər Məhsullar
+                </h2>
+            </div>
+        </div>
+        {% for product in products %}
+        <div class="owl-carousel owl-theme product-slider">
+            <div class="item">
+                <div class="bg"></div>
+                <img src="{{product.photo.url}}" alt="">
+                <div class="product-text">
+                    <h4 class="product-head">
+                        {{product.name}}
+                    </h4>
+                    <p class="product-body">
+                        Çeşid:{{product.cesid }} 
+                        Spirt: {{product.alcohol}}%
+                    </p>
+                    <button class="btn">
+                        Ətraflı
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+        <div class="texture-6">
+            <img src="./img/texture-6.png" alt="">
+        </div>
+    </section>
+    <!--Products End-->
+
+
+{% endblock main %}
+
+
+

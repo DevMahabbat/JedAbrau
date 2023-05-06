@@ -1,0 +1,118 @@
+{% extends 'base.html' %} {% block main %}
+<!--Breadcrumb-->
+<div class="container">
+  <div class="row">
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="./index.html"> Ana Səhifə </a>
+      </li>
+      <span>/</span>
+      <li class="breadcrumb-item">Məhsullar</li>
+    </ul>
+  </div>
+</div>
+<!--Breadcrumb-->
+
+<!--Products Start-->
+<section id="products">
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <div class="filter">
+          <div class="filter-head">
+            <h2>Kateqoriya</h2>
+            <a href="#"> təmizlə </a>
+          </div>
+          <div class="border">
+            <p class="border-bottom"></p>
+          </div>
+          <ul class="filter-body">
+            <ul class="filter-1">
+              <li class="filter-1-first">Şəki şərabı</li>
+              <ul class="dropdown">
+                <li class="form-group drop-item">
+                  <input type="checkbox" id="1" />
+                  <label for="1">Hamısı</label>
+                </li>
+                <li class="form-group drop-item">
+                  <input type="checkbox" id="2" />
+                  <label for="2">Yüngül şərablar</label>
+                </li>
+                <li class="form-group drop-item">
+                  <input type="checkbox" id="3" />
+                  <label for="3">Portveyn</label>
+                </li>
+              </ul>
+            </ul>
+            <ul class="filter-2">
+              <li class="filter-2-first">AzAbrau</li>
+              <ul class="dropdown">
+                <li class="form-group drop-item">
+                  <input type="checkbox" id="4" />
+                  <label for="4">Hamısı</label>
+                </li>
+                <li class="form-group drop-item">
+                  <input type="checkbox" id="5" />
+                  <label for="5">Alkaqolsuz içkilər</label>
+                </li>
+                <li class="form-group drop-item">
+                  <input type="checkbox" id="6" />
+                  <label for="6">Yüksək alkoqollu içkilər</label>
+                </li>
+                <li class="form-group drop-item">
+                  <input type="checkbox" id="7" />
+                  <label for="7">Köpüklü şərablar</label>
+                </li>
+                <li class="form-group drop-item">
+                  <input type="checkbox" id="8" />
+                  <label for="8">Yüngül şərablar</label>
+                </li>
+              </ul>
+            </ul>
+          </ul>
+        </div>
+      </div>
+      <div class="col-8">
+
+
+
+
+
+
+
+
+
+
+
+        {% for product in products %}
+        <div class="product">
+          <a href="#">
+            <img src="{{product.photo.url}}" alt="" />
+            <h3 class="products-head">{{product.title}}</h3>
+            <p class="products-body">
+              Çeşid:{{product.cesid }} Spirt: {{product.alcohol}}%
+            </p>
+            <button class="btn">Ətraflı</button>
+            <p class="products-right-border"></p>
+          </a>
+        </div>
+
+        {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</section>
+<!--Products End-->
+
+{% endblock main %}

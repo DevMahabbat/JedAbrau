@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+    {% block main %}
+
+
+     <!--Home Start-->
+     <section id="page-home">
+        <img src="./img/products-img.png" alt="">
+        <div class="page-bg"></div>
+        <div class="container">
+            <div class="row">
+                <h1 class="page-head-text">
+                    SATIŞ NÖQTƏLƏRİ
+                </h1>
+                <p class="page-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus egestas suspendisse porttitor elit
+                    sed volutpat.
+                </p>
+                <a class="down-img" href="#">
+                    <img src="./img/down-arrow.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </section>
+    <!--Home End-->
+    <!--Breadcrumb-->
+    <div class="container">
+        <div class="row">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="./index.html">
+                        Ana Səhifə
+                    </a>
+                </li>
+                <span>/</span>
+                <li class="breadcrumb-item">
+                    Satış Nöqtələri
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--Breadcrumb-->
+    <!--Maps Start-->
+    <section id="maps">
+        <div class="texture-7">
+            <img src="./img/texture-7.png" alt="">
+        </div>
+        <div class="texture-8">
+            <img src="./img/texture-8.png" alt="">
+        </div>
+        <div class="container">
+            <div class="row">
+                <h2 class="page-head">
+                    Sizə ən yaxın mağazanı seçin
+                </h2>
+                <div class="maps">
+                    <div class="col-4">
+                        <div class="locations">
+{% for map in maps %}
+{% if map.name and map.unvanlink %}
+
+
+
+                            <div class="location-card" data-id="{{map.id}}">
+                                <h4 class="loc-head">
+                                   {{ map.name}}
+                                </h4>
+                                <p class="loc-text"> 
+                                {{map.unvan}}
+                                </p>
+
+                                <a class="loc-text" href="tel:{{map.tel1}}">
+                                {{ map.tel1}}
+                                </a>
+
+
+                                <a class="loc-text" href="tel:+{{ map.tel2}}">
+                                    {{ map.tel2}}
+                                </a>
+                                <a class="loc-text" href="tel:+994514586247">
+                                    {{ map.tel3}}
+                                </a>
+
+                                <a class="loc-text" href="tel:+994514586247">
+                                    {{ map.tel4}}
+                                </a>
+                                <a class="loc-text" href="tel:+994514586247">
+                                    {{ map.tel5}}
+                                </a>
+                                <a class="loc-btn" href="javaScript:void(0)">
+                                    Xəritədə bax
+                                </a>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="maps-iframes" style="min-height: 1000px;">
+                            {% for map in maps %}
+{% if map.name and map.unvanlink %}
+
+
+                            <iframe style="display: block;" src="{{map.unvanlink}}" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+                            {% endif %}
+                            {% endfor %}
+                         
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Maps End-->
+    {% endblock main %}

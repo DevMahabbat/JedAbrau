@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+
+   <!--Breadcrumb-->
+
+   <div class="row">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+                Ana Səhifə
+            </a>
+        </li>
+        <span>/</span>
+        <li class="breadcrumb-item">
+            <a href="{% url 'news' %}">
+                Xəbərlər
+            </a>
+        </li>
+        <span>/</span>
+        <li class="breadcrumb-item">
+           {{news.title}}
+        </li>
+    </ul>
+</div>
+</div>
+<!--Breadcrumb-->
+
+<!--News Single Start-->
+<section id="news-single">
+<div class="texture-5">
+    <img src="./img/texture-5.png" alt="">
+</div>
+<div class="container">
+    <div class="row">
+        <h2 class="page-head">
+            {{news.title}}
+        </h2>
+        <img src="{{news.photo.url}}" alt="">
+        <p class="date">
+           {{news.tarix}}
+        </p>
+        <p class="news-single-text">
+          {{news.metn}}
+        </p>
+
+    </div>
+</div>
+</section>
+<!--News Single End-->
+
+
+{% endblock main %}
